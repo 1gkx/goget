@@ -7,7 +7,7 @@ import (
 	"github.com/1gkx/goget/internal/goget"
 )
 
-func Start(opts *arguments.Options, link string) error {
+func Start(opts *arguments.Options, links []string) error {
 
 	fmt.Println("Download Started")
 
@@ -20,13 +20,13 @@ func Start(opts *arguments.Options, link string) error {
 		fmt.Printf("Version: v0.0.1")
 		return nil
 	}
-	if opts.Output != "" && link != "" {
-		if err := goget.DownloadFile(link, opts.Output); err != nil {
+	if opts.Output != "" && len(links) == 1 {
+		if err := goget.DownloadFile(links[0], opts.Output); err != nil {
 			return err
 		}
 	}
 
-	fmt.Println(link)
+	fmt.Println(links)
 
 	fmt.Println("Download Finished")
 
