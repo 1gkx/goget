@@ -8,11 +8,12 @@ var link string
 
 type Options struct {
 	Version bool
+	Output  string
 }
 
 var (
 	version = flag.Bool("v", false, "version")
-	Output  = flag.String("o", "", "usage")
+	output  = flag.String("o", "", "usage")
 )
 
 func Parse() (*Options, string) {
@@ -23,5 +24,6 @@ func Parse() (*Options, string) {
 	}
 	return &Options{
 		Version: *version,
+		Output:  *output,
 	}, link
 }
