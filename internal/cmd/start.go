@@ -2,20 +2,24 @@ package cmd
 
 import (
 	"fmt"
-	"os"
 
-	"github.com/1gkx/goget/internal/goget"
+	"github.com/1gkx/goget/internal/arguments"
 )
 
-func Start() error {
+func Start(opts *arguments.Options, link string) error {
 
 	fmt.Println("Download Started")
 
-	url := os.Args[1]
-	filename := os.Args[2]
-	if err := goget.DownloadFile(url, filename); err != nil {
-		return err
+	if opts.Version {
+		fmt.Printf("Version: v0.0.1")
+		return nil
 	}
+
+	fmt.Println(link)
+
+	// if err := goget.DownloadFile(url, filename); err != nil {
+	// 	return err
+	// }
 
 	fmt.Println("Download Finished")
 
