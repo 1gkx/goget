@@ -11,6 +11,11 @@ func Start(opts *arguments.Options, link string) error {
 
 	fmt.Println("Download Started")
 
+	if opts.Help {
+		fmt.Printf("Help: help string")
+		return nil
+	}
+
 	if opts.Version {
 		fmt.Printf("Version: v0.0.1")
 		return nil
